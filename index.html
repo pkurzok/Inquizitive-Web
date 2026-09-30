@@ -18,6 +18,7 @@
     <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
     <link href="css/ignite-core.min.css" rel="stylesheet" />
     <link href="https://inquizitive.peterkurzok.de/" rel="canonical" />
+    <link href="images/favicon.png" rel="icon" />
     <link href="css/styles.css" rel="stylesheet" />
     <style>
 :root {
@@ -27,7 +28,12 @@
     color-scheme: light dark;
 }
 </style>
+    <link href="css/custom.css" rel="stylesheet" />
     <meta name="apple-itunes-app" content="app-id=6817424653" />
+    <meta name="description" content="Inquizitive: Smart AI Quiz. Type any topic and get ten fact-checked questions with Wikipedia sources in about a minute. For iPhone, iPad, Mac and Apple Vision Pro." /> 
+    <meta property="og:description" content="A smart quiz on any topic, fact-checked with Wikipedia." /> 
+    <meta property="og:image" content="https://inquizitive.peterkurzok.de/images/screenshots/iphone-01-question.jpg" /> 
+    <meta name="twitter:image" content="https://inquizitive.peterkurzok.de/images/screenshots/iphone-01-question.jpg" />
   </head>
   <body data-site-classes="site-shell">
     <header>
@@ -40,6 +46,7 @@
           <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="navbar-nav mb-2 mb-md-0 col justify-content-end">
               <li class="nav-item"><a href="#features" class="nav-link text-nowrap">Features</a></li>
+              <li class="nav-item"><a href="#screenshots" class="nav-link text-nowrap">Screenshots</a></li>
               <li class="nav-item"><a href="#faq" class="nav-link text-nowrap">FAQ</a></li>
               <li class="nav-item"><a href="#download" class="nav-link text-nowrap">Download</a></li>
               <li class="nav-item"><a href="https://apps.peterkurzok.de/imprint" class="nav-link text-nowrap">Imprint</a></li>
@@ -54,15 +61,124 @@
         <div id="hero" class="hero hero-centered">
           <div class="container">
             <div class="hero-content">
-              <h1 class="hero-title">Inquizitive: Smart AI Quiz</h1>
-              <p class="hero-subtitle">Memorize trivia on any topic. Type anything you're curious about and get ten fact-checked questions in about a minute, with the sources to prove it. On iPhone, iPad, Mac and Apple Vision Pro.</p>
+              <img src="images/app-icon.png" alt="App Icon" class="hero-app-icon" />
+              <h1 class="hero-title">Inquizitive</h1>
+              <p class="hero-subtitle">A smart quiz on any topic. Type anything you're curious about and get ten fact-checked questions in about a minute, with the sources to prove it. Remember what you learn, on iPhone, iPad, Mac and Apple Vision Pro.</p>
               <div class="hero-cta">
-                <a href="#download" class="cta-button cta-button-primary btn btn-primary">Coming soon to the App Store</a>
+                <a href="#screenshots" class="cta-button cta-button-primary btn btn-primary">Coming this autumn: see it in action</a>
               </div>
             </div>
           </div>
         </div>
-        <div id="features" class="features-section features-grid-layout features-grid-multiple-of-three">
+        <div id="screenshots" class="screenshots-section screenshots-carousel">
+          <div class="container">
+            <div class="section-header">
+              <h2>A look inside</h2>
+              <p class="section-description">Pick a topic, tailor it, and learn from sources you can check.</p>
+            </div>
+            <div class="screenshots-container">
+              <div class="screenshots-scroll">
+                <div class="screenshot-card">
+                  <button type="button" class="screenshot-trigger btn" data-bs-toggle="modal" data-bs-target="#screenshot-modal-0"><img src="images/screenshots/iphone-01-question.jpg" alt="A smart quiz on any topic" class="screenshot-image" /></button>
+                </div>
+                <div class="screenshot-card">
+                  <button type="button" class="screenshot-trigger btn" data-bs-toggle="modal" data-bs-target="#screenshot-modal-1"><img src="images/screenshots/iphone-02-tailor.jpg" alt="Tailored to you" class="screenshot-image" /></button>
+                </div>
+                <div class="screenshot-card">
+                  <button type="button" class="screenshot-trigger btn" data-bs-toggle="modal" data-bs-target="#screenshot-modal-2"><img src="images/screenshots/iphone-03-research.jpg" alt="Fact-checked with Wikipedia" class="screenshot-image" /></button>
+                </div>
+                <div class="screenshot-card">
+                  <button type="button" class="screenshot-trigger btn" data-bs-toggle="modal" data-bs-target="#screenshot-modal-3"><img src="images/screenshots/iphone-04-explanation.jpg" alt="Learn why it's right" class="screenshot-image" /></button>
+                </div>
+                <div class="screenshot-card">
+                  <button type="button" class="screenshot-trigger btn" data-bs-toggle="modal" data-bs-target="#screenshot-modal-4"><img src="images/screenshots/iphone-05-results.jpg" alt="Memorize what you missed" class="screenshot-image" /></button>
+                </div>
+                <div class="screenshot-card">
+                  <button type="button" class="screenshot-trigger btn" data-bs-toggle="modal" data-bs-target="#screenshot-modal-5"><img src="images/screenshots/iphone-06-library.jpg" alt="All your quizzes, synced" class="screenshot-image" /></button>
+                </div>
+              </div>
+            </div>
+            <div id="screenshot-modal-0" tabindex="-1" class="modal fade screenshot-modal" aria-labelledby="screenshotModalLabel0" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4>Screenshot 1</h4>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <img src="images/screenshots/iphone-01-question.jpg" alt="A smart quiz on any topic" class="img-fluid screenshot-lightbox-image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="screenshot-modal-1" tabindex="-1" class="modal fade screenshot-modal" aria-labelledby="screenshotModalLabel1" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4>Screenshot 2</h4>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <img src="images/screenshots/iphone-02-tailor.jpg" alt="Tailored to you" class="img-fluid screenshot-lightbox-image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="screenshot-modal-2" tabindex="-1" class="modal fade screenshot-modal" aria-labelledby="screenshotModalLabel2" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4>Screenshot 3</h4>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <img src="images/screenshots/iphone-03-research.jpg" alt="Fact-checked with Wikipedia" class="img-fluid screenshot-lightbox-image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="screenshot-modal-3" tabindex="-1" class="modal fade screenshot-modal" aria-labelledby="screenshotModalLabel3" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4>Screenshot 4</h4>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <img src="images/screenshots/iphone-04-explanation.jpg" alt="Learn why it's right" class="img-fluid screenshot-lightbox-image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="screenshot-modal-4" tabindex="-1" class="modal fade screenshot-modal" aria-labelledby="screenshotModalLabel4" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4>Screenshot 5</h4>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <img src="images/screenshots/iphone-05-results.jpg" alt="Memorize what you missed" class="img-fluid screenshot-lightbox-image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="screenshot-modal-5" tabindex="-1" class="modal fade screenshot-modal" aria-labelledby="screenshotModalLabel5" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4>Screenshot 6</h4>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <img src="images/screenshots/iphone-06-library.jpg" alt="All your quizzes, synced" class="img-fluid screenshot-lightbox-image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="features" class="features-section features-cards-layout features-grid-multiple-of-three">
           <div class="container">
             <div class="section-header">
               <h2>Features</h2>
@@ -89,6 +205,27 @@
                 </div>
                 <h4 class="feature-title">Practice what you missed</h4>
                 <p class="feature-description">Retry only the questions you got wrong until they stick. Your best score is kept for every quiz, and your quizzes sync through iCloud.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="feature-icon-image bi-laptop"></i>
+                </div>
+                <h4 class="feature-title">Native on iPhone, iPad, Mac and Vision Pro</h4>
+                <p class="feature-description">One app, built for each device: a sidebar on iPad and Mac, a window of its own on Apple Vision Pro. Quizzes sync between them through iCloud.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="feature-icon-image bi-translate"></i>
+                </div>
+                <h4 class="feature-title">In 17 languages</h4>
+                <p class="feature-description">Inquizitive speaks your language, and so do its sources: questions are researched in your language's Wikipedia.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="feature-icon-image bi-shield-lock"></i>
+                </div>
+                <h4 class="feature-title">Private by design</h4>
+                <p class="feature-description">No account, no analytics, no ads. Quizzes are written by Apple Intelligence, on your device or on Apple's Private Cloud Compute.</p>
               </div>
             </div>
           </div>
@@ -122,50 +259,50 @@
               <p class="section-description">Something not working, or an idea? Write to inquizitive@peterkurzok.de. I read every message.</p>
             </div>
             <div class="faq-content faq-accordion-layout">
-              <div id="accordionxTr1v" class="faq-accordion accordion">
+              <div id="accordionxPFj0" class="faq-accordion accordion">
                 <div class="accordion-item">
-                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxTr1v-itemqyPGF" aria-expanded="false" aria-controls="accordionxTr1v-itemqyPGF">Why is New Quiz disabled?</button></h2>
-                  <div id="accordionxTr1v-itemqyPGF" class="accordion-collapse collapse" data-bs-parent="#accordionxTr1v">
+                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxPFj0-item8hR6m" aria-expanded="false" aria-controls="accordionxPFj0-item8hR6m">Why is New Quiz disabled?</button></h2>
+                  <div id="accordionxPFj0-item8hR6m" class="accordion-collapse collapse" data-bs-parent="#accordionxPFj0">
                     <div class="accordion-body">
                       <p class="faq-answer">Inquizitive needs Apple Intelligence to write quizzes. Check that your device supports it (iPhone 15 Pro or later, iPad or Mac with M1 or later, Apple Vision Pro), that it runs version 27, and that Apple Intelligence is turned on in Settings → Apple Intelligence &amp; Siri. After you turn it on, the model may need a few minutes to download.</p>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
-                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxTr1v-itemwLoeh" aria-expanded="false" aria-controls="accordionxTr1v-itemwLoeh">Where do the facts come from?</button></h2>
-                  <div id="accordionxTr1v-itemwLoeh" class="accordion-collapse collapse" data-bs-parent="#accordionxTr1v">
+                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxPFj0-itemfFfid" aria-expanded="false" aria-controls="accordionxPFj0-itemfFfid">Where do the facts come from?</button></h2>
+                  <div id="accordionxPFj0-itemfFfid" class="accordion-collapse collapse" data-bs-parent="#accordionxPFj0">
                     <div class="accordion-body">
                       <p class="faq-answer">When Apple's Private Cloud Compute is available, questions are researched on Wikipedia, Wiktionary and Wikidata while they're written, and each answer shows its sources. On the on-device model, quizzes are written without live research.</p>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
-                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxTr1v-itemi3SrQ" aria-expanded="false" aria-controls="accordionxTr1v-itemi3SrQ">Do you collect any data about me?</button></h2>
-                  <div id="accordionxTr1v-itemi3SrQ" class="accordion-collapse collapse" data-bs-parent="#accordionxTr1v">
+                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxPFj0-itemZJCR0" aria-expanded="false" aria-controls="accordionxPFj0-itemZJCR0">Do you collect any data about me?</button></h2>
+                  <div id="accordionxPFj0-itemZJCR0" class="accordion-collapse collapse" data-bs-parent="#accordionxPFj0">
                     <div class="accordion-body">
                       <p class="faq-answer">No. There's no account, no analytics, no crash reporting and no advertising. The privacy policy sets out exactly what leaves your device and to whom.</p>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
-                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxTr1v-item5vofR" aria-expanded="false" aria-controls="accordionxTr1v-item5vofR">How do my quizzes get to my other devices?</button></h2>
-                  <div id="accordionxTr1v-item5vofR" class="accordion-collapse collapse" data-bs-parent="#accordionxTr1v">
+                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxPFj0-itemrkJfj" aria-expanded="false" aria-controls="accordionxPFj0-itemrkJfj">How do my quizzes get to my other devices?</button></h2>
+                  <div id="accordionxPFj0-itemrkJfj" class="accordion-collapse collapse" data-bs-parent="#accordionxPFj0">
                     <div class="accordion-body">
                       <p class="faq-answer">Through your own private iCloud database. I have no access to it. If you don't use iCloud, your quizzes stay on the device.</p>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
-                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxTr1v-itemXagQM" aria-expanded="false" aria-controls="accordionxTr1v-itemXagQM">What do the tips unlock?</button></h2>
-                  <div id="accordionxTr1v-itemXagQM" class="accordion-collapse collapse" data-bs-parent="#accordionxTr1v">
+                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxPFj0-itemF1vGo" aria-expanded="false" aria-controls="accordionxPFj0-itemF1vGo">What do the tips unlock?</button></h2>
+                  <div id="accordionxPFj0-itemF1vGo" class="accordion-collapse collapse" data-bs-parent="#accordionxPFj0">
                     <div class="accordion-body">
                       <p class="faq-answer">Nothing. "Buy me a coffee" and "Buy me lunch" in Settings are optional ways to support development. Every feature is free.</p>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
-                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxTr1v-itemDeFMN" aria-expanded="false" aria-controls="accordionxTr1v-itemDeFMN">How do I get in touch?</button></h2>
-                  <div id="accordionxTr1v-itemDeFMN" class="accordion-collapse collapse" data-bs-parent="#accordionxTr1v">
+                  <h2 class="accordion-header"><button type="button" class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#accordionxPFj0-itemQnOJ4" aria-expanded="false" aria-controls="accordionxPFj0-itemQnOJ4">How do I get in touch?</button></h2>
+                  <div id="accordionxPFj0-itemQnOJ4" class="accordion-collapse collapse" data-bs-parent="#accordionxPFj0">
                     <div class="accordion-body">
                       <p class="faq-answer">Write to inquizitive@peterkurzok.de.</p>
                     </div>
@@ -179,7 +316,7 @@
           <div class="container">
             <div class="download-content">
               <h2>Get Inquizitive</h2>
-              <p class="download-description">Coming soon to the App Store for iPhone, iPad, Mac and Apple Vision Pro. Free, with no ads and no account.</p>
+              <p class="download-description">Coming this autumn to the App Store for iPhone, iPad, Mac and Apple Vision Pro. Free, with no ads and no account.</p>
               <div class="store-badges">
                 <a href="mailto:inquizitive@peterkurzok.de" class="cta-button download-cta-button btn btn-primary">Write to me</a>
               </div>

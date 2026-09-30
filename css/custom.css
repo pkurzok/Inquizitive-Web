@@ -1,0 +1,25 @@
+/* Brand gradient bookends (hero, download). The section background fields don't reach the export,
+   so the colours live here. The stock .cta-button sets its colour with !important. */
+.hero, .download-section {
+  background: linear-gradient(135deg, #1FC8B4 0%, #0B6E8A 100%);
+  color: #fff;
+}
+.hero .hero-title, .hero .hero-subtitle,
+.download-section h2, .download-section .download-description { color: #fff; }
+.hero .hero-cta .cta-button, .download-section .download-cta-button {
+  background: #fff; color: #0B6E8A !important; border-color: #fff;
+}
+.hero .hero-cta .cta-button:hover, .download-section .download-cta-button:hover {
+  background: #E6F7F5; color: #0B6E8A !important; border-color: #E6F7F5;
+}
+/* The icon PNG is already masked; clip to the same shape so the shadow follows it. A CSS filter
+   (drop-shadow) left a square edge in Safari. */
+.hero-app-icon {
+  border-radius: 22.5%;
+  box-shadow: 0 12px 24px rgba(0,0,0,.25);
+}
+/* Highlights: light teal tint, darker in dark mode. */
+.highlights-section { background: #E6F7F5; }
+@media (prefers-color-scheme: dark) {
+  .highlights-section { background: #0E2E33; }
+}
