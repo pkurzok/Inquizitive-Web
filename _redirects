@@ -1,0 +1,4 @@
+# Cloudflare Pages rejects any single file over 25 MiB, which fails the whole deploy.
+# The raw screenshot ZIP is a GitHub release asset instead (release press-kit-en-US);
+# this keeps its /press/ URL working. Written by scripts/press-kit.sh in the Inquizitive repo.
+/press/Inquizitive-Raw-Screenshots-en-US.zip https://github.com/pkurzok/Inquizitive-Web/releases/download/press-kit-en-US/Inquizitive-Raw-Screenshots-en-US.zip 302
