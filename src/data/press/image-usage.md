@@ -1,0 +1,1 @@
+Please use the screenshots and the app icon only in coverage of Inquizitive. The device frames in the framed screenshots (iPhone, iPad, MacBook Pro) are Apple's product bezel artwork, licensed under the Apple Design Resources licence; the artwork may not be extracted, modified, redistributed or repackaged. The Apple Vision Pro screenshots are unframed.

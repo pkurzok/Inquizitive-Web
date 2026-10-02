@@ -14,9 +14,6 @@ const imageAliases = { 'images/press/app-icon.png': 'app-icon.png' };
 const badgeFiles = { preorder: 'app-store-preorder', released: 'app-store-download' };
 const badges = Object.values(badgeFiles).flatMap((badge) => ['black', 'white'].map((tone) => `${badge}-${tone}.svg`));
 
-// Pages that later phases of the migration add; links to them are accepted until then.
-const pending = ['/press/'];
-
 const siteData = await readFile('src/data/site.ts', 'utf8');
 const status = siteData.match(/^\s*status:\s*'(\w+)'/m)?.[1];
 const heroCtaLabel = siteData.match(/heroCta:\s*\{\s*label:\s*'([^']*)'/)?.[1];
@@ -29,11 +26,19 @@ const screenshotFiles = (await readdir(path.join(imageSource, 'screenshots')))
 
 const site = 'https://inquizitive.peterkurzok.de';
 const sitemapUrls = ['/', '/privacy/', '/press/'].map((page) => site + page);
+const release = 'https://github.com/pkurzok/Inquizitive-Web/releases/download/press-kit-en-US';
+const archives = ['Inquizitive-Raw-Screenshots-en-US.zip', 'Inquizitive-Framed-Screenshots-en-US.zip'];
+const expectedRedirects = [
+  ...archives.map((archive) => [`/press/${archive}`, `${release}/${archive}`, '302']),
+  ['/privacy.html', '/privacy/', '301'],
+  ['/press.html', '/press/', '301'],
+];
 const aasaFiles = ['.well-known/apple-app-site-association', 'apple-app-site-association'];
 
 const expectedFiles = [
   'index.html',
   'privacy/index.html',
+  'press/index.html',
   's/index.html',
   '404.html',
   'feed.rss',
@@ -119,6 +124,19 @@ const redirects = existsSync(path.join(dist, '_redirects'))
       .map((line) => line.split(/\s+/))
   : [];
 const redirectSources = redirects.map(([source]) => source);
+for (const [source, target, status] of expectedRedirects) {
+  const rule = redirects.find(([candidate]) => candidate === source);
+  check(
+    rule?.[1] === target && rule?.[2] === status,
+    `_redirects: ${source} -> ${target.replace('https://github.com/pkurzok/Inquizitive-Web/', '')} ${status}`,
+    rule ? `found "${rule.join(' ')}"` : 'rule missing',
+  );
+}
+check(
+  redirects.length === expectedRedirects.length,
+  `_redirects holds ${expectedRedirects.length} rules`,
+  `found ${redirects.length}`,
+);
 
 // Internal links
 const htmlFiles = files.filter((file) => file.endsWith('.html'));
@@ -136,7 +154,7 @@ for (const [file, content] of html) {
       linkProblems.push(`${file}: "${target}" is not root-relative`);
       continue;
     }
-    if (redirectSources.includes(pathname) || pending.includes(pathname)) continue;
+    if (redirectSources.includes(pathname)) continue;
     const page = pathname ? pageFor(pathname) : file;
     if (!files.includes(page)) {
       const isPage = !path.extname(pathname) && files.includes(pageFor(`${pathname}/`));
@@ -252,6 +270,25 @@ for (const [label, needle] of [
   check(share.includes(needle), `s/index.html ${label}`, 'missing');
 }
 check(!share.includes('nav-link'), 's/index.html has no navigation', 'found a nav-link');
+
+// Press kit
+const pressPage = html.get('press/index.html') ?? '';
+for (const id of ['downloads', 'facts', 'contact']) {
+  check(pressPage.includes(`id="${id}"`), `press/index.html has id "${id}"`, 'missing');
+}
+for (const target of [...archives.map((archive) => `/press/${archive}`), '/images/app-icon.png']) {
+  check(pressPage.includes(`href="${target}"`), `press/index.html links ${target}`, 'missing');
+}
+check(pressPage.includes('Share and challenge'), 'press/index.html names the sharing highlight', 'missing');
+// There is no App Store page to link before the app can be pre-ordered.
+const appStoreFact = pressPage.includes('<th scope="row">App Store</th>');
+check(
+  appStoreFact === (status !== 'announced'),
+  `press/index.html ${status === 'announced' ? 'omits' : 'has'} the "App Store" fact for status "${status}"`,
+  appStoreFact ? 'the row is shown' : 'the row is missing',
+);
+const zips = files.filter((file) => file.endsWith('.zip'));
+check(zips.length === 0, 'no ZIP archive in the build', `found ${zips.join(', ')}`);
 
 if (failures > 0) {
   console.log(`${failures} ${failures === 1 ? 'check' : 'checks'} failed.`);

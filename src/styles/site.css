@@ -1038,6 +1038,142 @@ th {
 }
 
 /* ==========================================
+   Press kit
+   ========================================== */
+
+.press-main {
+    padding: 4rem 0 var(--section-padding-y);
+}
+
+.press-main h1 {
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.press-lead {
+    font-size: 1.15rem;
+    max-width: 46rem;
+}
+
+.press-section {
+    margin-top: 3rem;
+}
+
+.press-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.press-prose {
+    max-width: 46rem;
+}
+
+.press-prose h3 {
+    margin: 1.5rem 0 0.75rem;
+    font-size: 1.125rem;
+}
+
+.press-prose li {
+    margin-bottom: 0.5rem;
+}
+
+.press-prose ul {
+    padding-left: 1.25rem;
+}
+
+.press-downloads {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .press-downloads {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.press-download-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.press-download-card h3 {
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.press-download-card p {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    flex-grow: 1;
+}
+
+.press-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.press-gallery figure {
+    margin: 0;
+}
+
+.press-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+}
+
+.press-gallery figcaption {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-top: 0.5rem;
+}
+
+.press-facts th {
+    padding-right: 1.5rem;
+    font-weight: 600;
+}
+
+.press-facts th,
+.press-facts td {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Addresses have no spaces; let them break on a phone. */
+.press-facts td {
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 576px) {
+    .press-facts th {
+        white-space: nowrap;
+    }
+}
+
+.press-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.press-section > p.press-note {
+    margin-top: 0.75rem;
+}
+
+/* ==========================================
    Shared-quiz page (/s/)
    ========================================== */
 

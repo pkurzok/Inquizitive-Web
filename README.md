@@ -29,6 +29,9 @@ or a published file is missing.
 | Hero, features, Apple Intelligence band, Support, download text, navigation, footer | `src/data/site.ts` |
 | Screenshot list with alt texts and captions | `src/data/site.ts` (`screenshots`) |
 | Privacy policy | `src/pages/privacy.md` |
+| Press kit: lead, download cards, facts, contact | `src/data/site.ts` (`press`) |
+| Press kit: about, pricing, attribution, image usage, developer | `src/data/press/*.md` |
+| Redirects | `public/_redirects` |
 | Landing page for shared quizzes | `src/pages/s.astro` |
 | Universal-link files, response headers | `public/.well-known/apple-app-site-association`, `public/apple-app-site-association`, `public/_headers` |
 | 404 page | `src/pages/404.astro` |
@@ -49,7 +52,8 @@ A Support entry, a feature text or a footer link is one edit in `src/data/site.t
 | `'preorder'` | The "Pre-order on the App Store" badge | After App Review approved the pre-order |
 | `'released'` | The "Download on the App Store" badge | On launch day |
 
-The download text follows the same value; all three wordings are already in the file.
+The download text, the lead and the "Launch" fact of the press kit, its "App Store" fact and its
+contact note follow the same value; all three wordings are already in the file.
 `npm run check` verifies that the built homepage matches the status.
 
 ## Editing the privacy policy
@@ -85,3 +89,23 @@ Originals live in `src/assets/images/` and exist only there.
   in `src/data/site.ts`. `npm run check` fails when the two do not match. The screenshots and
   the app icon come from the app repository; `make press-kit SITE=<this folder>` there copies
   them here.
+
+## Press archives
+
+The two screenshot archives are not in this repository. They are assets of the GitHub release
+[`press-kit-en-US`](https://github.com/pkurzok/Inquizitive-Web/releases/tag/press-kit-en-US), and
+`public/_redirects` sends `/press/Inquizitive-Framed-Screenshots-en-US.zip` and
+`/press/Inquizitive-Raw-Screenshots-en-US.zip` there.
+
+The archives are built and replaced from the app repository:
+
+```sh
+make press-kit            # builds both ZIPs from the en-US screenshots
+make press-kit-release    # uploads both to the release; they are public at once
+```
+
+When the number of images or a size changes, update the card texts in `press.downloads` in
+`src/data/site.ts`: they name what the release holds.
+
+No file above 25 MiB may enter the build: Cloudflare Pages rejects it and the whole deployment
+fails. `npm run check` fails for such a file and for any ZIP in `dist/`.
