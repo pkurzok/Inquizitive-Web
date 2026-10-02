@@ -1,0 +1,1 @@
+Facts and explanations are derived from Wikipedia and Wiktionary (CC BY-SA) and Wikidata (CC0), with links to the sources in the app. Inquizitive is not affiliated with or endorsed by the Wikimedia Foundation.

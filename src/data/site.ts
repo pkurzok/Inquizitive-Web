@@ -213,5 +213,86 @@ export const screenshots = [
   },
 ] as const;
 
+// The press kit. Its longer texts are src/data/press/*.md.
+export const press = {
+  title: 'Press Kit',
+  lead: "Ten fact-checked questions on anything you're curious about, in about a minute, on iPhone, iPad, Mac and Apple Vision Pro. Free to try, with no account; Pro, a one-time purchase, unlocks unlimited quizzes.",
+  leadLaunch: {
+    announced: 'Launching on the App Store on 18 October 2026.',
+    preorder: 'Launching on the App Store on 18 October 2026, available for pre-order now.',
+    released: 'Available on the App Store since 18 October 2026.',
+  } as Record<LaunchStatus, string>,
+  // The ZIP archives are assets of the GitHub release press-kit-en-US; public/_redirects
+  // sends the /press/ URLs there. The counts and sizes name what the release holds: update
+  // them when the archives are replaced.
+  downloads: [
+    {
+      title: 'Framed screenshots',
+      text: '20 captioned images (iPhone, iPad and Mac in Apple device bezels, Vision Pro unframed). ZIP, 7.8\u00a0MB.',
+      href: '/press/Inquizitive-Framed-Screenshots-en-US.zip',
+      label: 'Download ZIP',
+    },
+    {
+      title: 'Raw screenshots',
+      text: '20 unframed full-resolution captures. ZIP, 42\u00a0MB.',
+      href: '/press/Inquizitive-Raw-Screenshots-en-US.zip',
+      label: 'Download ZIP',
+    },
+    {
+      title: 'App icon',
+      text: '1024 × 1024 PNG.',
+      href: '/images/app-icon.png',
+      label: 'Download PNG',
+      download: 'Inquizitive-App-Icon.png',
+    },
+  ] as { title: string; text: string; href: string; label: string; download?: string }[],
+  downloadsNote: "Framed and raw screenshots in the app's other 16 languages are available on request.",
+  facts: [
+    {
+      label: 'Launch',
+      value: {
+        announced: '18 October 2026 on the App Store',
+        preorder: '18 October 2026 on the App Store (available for pre-order now)',
+        released: '18 October 2026 on the App Store',
+      }[app.status],
+    },
+    {
+      label: 'Price',
+      value: 'free to try (three quizzes, with ads); Pro €4.99, one-time, on all platforms; no subscription',
+    },
+    {
+      label: 'Platforms',
+      value: 'iPhone and iPad (iOS/iPadOS 27), Mac (macOS 27), Apple Vision Pro (visionOS 27)',
+    },
+    {
+      label: 'Requires Apple Intelligence',
+      value:
+        'iPhone 15 Pro or later, iPad and Mac with M1 or later, or Apple Vision Pro, with Apple Intelligence turned on',
+    },
+    {
+      label: 'Languages',
+      value:
+        'English, Chinese (Simplified), Chinese (Traditional), Danish, Dutch, French, German, Italian, Japanese, Korean, Norwegian Bokmål, Portuguese (Brazil), Portuguese (Portugal), Spanish, Swedish, Turkish, Vietnamese',
+    },
+    // There is no App Store page to link while the app is only announced.
+    ...(app.status === 'announced'
+      ? []
+      : [{ label: 'App Store', value: app.appStoreUrl.replace('https://', ''), href: app.appStoreUrl }]),
+    { label: 'Website', value: 'inquizitive.peterkurzok.de', href: 'https://inquizitive.peterkurzok.de' },
+    { label: 'Press page', value: 'inquizitive.peterkurzok.de/press/', href: 'https://inquizitive.peterkurzok.de/press/' },
+    { label: 'Review access', value: 'TestFlight or a Pro promo code on request' },
+  ] as { label: string; value: string; href?: string }[],
+  contact: {
+    name: 'Peter Kurzok',
+    email: app.email,
+    // Shown below the address; nothing is shown once the app is released.
+    note: {
+      announced: 'Review access before launch is available via TestFlight or a Pro promo code on request.',
+      preorder: 'Review access before launch is available via TestFlight or a Pro promo code on request.',
+      released: null,
+    } as Record<LaunchStatus, string | null>,
+  },
+};
+
 // The paths the sitemap lists. /s/ is not among them: it is noindex.
 export const pages = ['/', '/privacy/', '/press/'];
