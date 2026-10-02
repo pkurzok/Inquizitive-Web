@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" data-light-theme="light" data-dark-theme="dark">
+  <head>
+    <base href="../" />
+    <!-- Static, because a crawler doesn't run JavaScript: Messages, WhatsApp and Mastodon build
+         their link preview from these tags, so nothing here may be injected at runtime. -->
+    <meta property="og:site_name" content="Inquizitive" />
+    <meta property="og:title" content="A quiz on Inquizitive" />
+    <meta property="og:description" content="Someone shared a quiz with you. Open the link on a device with Inquizitive installed." />
+    <meta property="og:image" content="https://inquizitive.peterkurzok.de/images/app-icon.png" />
+    <meta property="og:url" content="https://inquizitive.peterkurzok.de/s/" />
+    <meta name="twitter:title" content="A quiz on Inquizitive" />
+    <meta name="twitter:domain" content="inquizitive.peterkurzok.de" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:dnt" content="on" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Peter Kurzok" />
+    <title>A quiz on Inquizitive</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://inquizitive.peterkurzok.de/s/" rel="canonical" />
+    <link href="images/favicon.png" rel="icon" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- The page says nothing without the fragment, and a crawler never receives the fragment. -->
+    <meta name="robots" content="noindex" />
+    <style>
+:root {
+    --primary-color: #0b6e8a;
+    --primary-rgb: 11, 110, 138;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color-scheme: light dark;
+}
+.share-lede { max-width: 34rem; margin-inline: auto; }
+.share-lede + .share-lede { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255, 255, 255, 0.35); }
+</style>
+    <link href="css/custom.css" rel="stylesheet" />
+    <!-- The Smart App Banner. The script at the end of the body adds `app-argument` with the whole
+         URL, fragment included, so the banner's Open button hands the quiz to the installed app. -->
+    <meta name="apple-itunes-app" content="app-id=6817424653" />
+  </head>
+  <body data-site-classes="site-shell">
+    <header>
+      <nav class="site-header navbar navbar-expand-md">
+        <div class="container flex-wrap flex-lg-nowrap">
+          <div class="me-2 me-md-auto">
+            <a href="./" class="brand-link d-inline-flex align-items-center navbar-brand"><span class="brand-name">Inquizitive</span></a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="site-main">
+      <div class="ig-main-content">
+        <div id="hero" class="hero hero-centered">
+          <div class="container">
+            <div class="hero-content">
+              <img src="images/app-icon.png" alt="Inquizitive app icon" class="hero-app-icon" />
+
+              <div class="share-lede" lang="en">
+                <h1 class="hero-title">Someone shared a quiz with you</h1>
+                <p class="hero-subtitle">Open this link on an iPhone, iPad, Mac or Apple Vision Pro with Inquizitive installed, and the quiz is added to your library. The quiz was encrypted on the sender's device, and the key is part of the link.</p>
+                <div class="hero-cta">
+                  <a href="https://apps.apple.com/app/id6817424653" class="store-badge-link"><img src="images/app-store-download-black.svg" alt="Download on the App Store" class="store-badge store-badge-light-mode" /><img src="images/app-store-download-white.svg" alt="Download on the App Store" class="store-badge store-badge-dark-mode" /></a>
+                </div>
+              </div>
+
+              <div class="share-lede" lang="de">
+                <h2 class="hero-title">Jemand hat ein Quiz mit dir geteilt</h2>
+                <p class="hero-subtitle">Öffne diesen Link auf einem iPhone, iPad, Mac oder einer Apple Vision Pro, auf der Inquizitive installiert ist, und das Quiz landet in deiner Bibliothek. Das Quiz wurde auf dem Gerät des Absenders verschlüsselt, und der Schlüssel ist Teil des Links.</p>
+                <div class="hero-cta">
+                  <a href="https://apps.apple.com/app/id6817424653" class="store-badge-link"><img src="images/app-store-download-black.svg" alt="Laden im App Store" class="store-badge store-badge-light-mode" /><img src="images/app-store-download-white.svg" alt="Laden im App Store" class="store-badge store-badge-dark-mode" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="site-footer">
+      <div class="container">
+        <div class="footer-copyright">
+          <div class="footer-links">
+            <a href="privacy/" class="footer-privacy-link">Privacy Policy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula" class="footer-privacy-link">Terms of Service</a>
+          </div>
+          <p>© 2026 Peter Kurzok</p>
+          <a href="https://www.kickstart.tools" class="footer-kickstart-link">Built with Kickstart</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      // The quiz is never shown here and can't be: its record id and key are in the URL fragment,
+      // which stays in the browser (RFC 3986 §3.5). The server sees a plain GET for /s/.
+      // The fragment is only needed for the Smart App Banner's Open button, set here in the browser.
+      document.querySelector('meta[name="apple-itunes-app"]')
+        .setAttribute('content', 'app-id=6817424653, app-argument=' + window.location.href);
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/ignite-core.js"></script>
+  </body>
+</html>
