@@ -990,6 +990,96 @@ th {
 }
 
 /* ==========================================
+   Prose pages (privacy policy, 404)
+   ========================================== */
+
+.privacy-page {
+    padding: 4rem 0 var(--section-padding-y);
+    background: var(--bg-page);
+    min-height: 70vh;
+}
+
+.privacy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.privacy-content h1 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.privacy-content h2,
+.privacy-content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.privacy-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.privacy-content ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.privacy-content li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.privacy-content .button {
+    margin-top: 0.5rem;
+}
+
+/* ==========================================
+   Shared-quiz page (/s/)
+   ========================================== */
+
+.hero.share-hero {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+/* The icon PNG is already masked; clip to the same shape so the shadow follows it. A CSS filter
+   (drop-shadow) left a square edge in Safari. */
+.share-app-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+    border-radius: 22.5%;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.share-lede {
+    max-width: 34rem;
+    margin-inline: auto;
+}
+
+.share-lede + .share-lede {
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.share-lede .hero-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.share-lede .hero-subtitle {
+    margin-inline: auto;
+}
+
+.share-lede .hero-cta {
+    margin-bottom: 0;
+}
+
+/* ==========================================
    Footer
    ========================================== */
 
