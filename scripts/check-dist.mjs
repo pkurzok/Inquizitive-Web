@@ -15,7 +15,7 @@ const badgeFiles = { preorder: 'app-store-preorder', released: 'app-store-downlo
 const badges = Object.values(badgeFiles).flatMap((badge) => ['black', 'white'].map((tone) => `${badge}-${tone}.svg`));
 
 // Pages that later phases of the migration add; links to them are accepted until then.
-const pending = ['/privacy/', '/press/', '/s/'];
+const pending = ['/press/'];
 
 const siteData = await readFile('src/data/site.ts', 'utf8');
 const status = siteData.match(/^\s*status:\s*'(\w+)'/m)?.[1];
@@ -27,8 +27,20 @@ const screenshotFiles = (await readdir(path.join(imageSource, 'screenshots')))
   .filter((file) => file.endsWith('.jpg'))
   .sort();
 
+const site = 'https://inquizitive.peterkurzok.de';
+const sitemapUrls = ['/', '/privacy/', '/press/'].map((page) => site + page);
+const aasaFiles = ['.well-known/apple-app-site-association', 'apple-app-site-association'];
+
 const expectedFiles = [
   'index.html',
+  'privacy/index.html',
+  's/index.html',
+  '404.html',
+  'feed.rss',
+  'sitemap.xml',
+  'robots.txt',
+  '_headers',
+  ...aasaFiles,
   'images/app-icon.png',
   'images/press/app-icon.png',
   ...screenshotFiles.map((file) => `images/screenshots/${file}`),
@@ -69,6 +81,26 @@ for (const file of files.filter((file) => file.startsWith('images/'))) {
   const identical =
     existsSync(source) && (await readFile(source)).equals(await readFile(path.join(dist, file)));
   check(identical, `${dist}/${file} (identical to source)`, existsSync(source) ? 'differs' : 'has no source');
+}
+
+// Universal links: both copies of the association file are published unchanged, as JSON
+const aasa = await Promise.all(
+  aasaFiles.flatMap((file) => [path.join('public', file), path.join(dist, file)]).map((file) =>
+    existsSync(file) ? readFile(file) : null,
+  ),
+);
+for (const [index, file] of aasaFiles.entries()) {
+  const [source, built] = [aasa[index * 2], aasa[index * 2 + 1]];
+  check(Boolean(source && built?.equals(source)), `${dist}/${file} (identical to public/)`, 'differs or missing');
+}
+check(Boolean(aasa[0] && aasa[2]?.equals(aasa[0])), 'both association files have the same content', 'they differ');
+const headers = files.includes('_headers') ? await read('_headers') : '';
+for (const file of aasaFiles) {
+  check(
+    new RegExp(`^/${file.replace('.', '\\.')}\\n\\s+Content-Type: application/json$`, 'm').test(headers),
+    `_headers serves /${file} as application/json`,
+    'rule missing',
+  );
 }
 
 // Every screenshot file is listed in src/data/site.ts, and every entry has its file
@@ -179,6 +211,47 @@ for (const arrow of ['carousel-prev', 'carousel-next']) {
   );
 }
 check(!/<script[^>]+src=/.test(index), 'index.html loads no script file', 'found <script src=…>');
+
+// Sitemap and feed
+const sitemap = files.includes('sitemap.xml') ? await read('sitemap.xml') : '';
+const locations = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map(([, location]) => location);
+check(
+  locations.length === sitemapUrls.length && sitemapUrls.every((url) => locations.includes(url)),
+  `sitemap.xml lists exactly ${sitemapUrls.length} URLs`,
+  `found ${locations.join(', ') || 'none'}`,
+);
+const feed = files.includes('feed.rss') ? await read('feed.rss') : '';
+check(feed.includes(`<atom:link href="${site}/feed.rss"`), 'feed.rss links to itself', 'atom:link missing');
+
+// Privacy policy
+const privacy = html.get('privacy/index.html') ?? '';
+check(
+  privacy.includes(`<link rel="canonical" href="${site}/privacy/"`),
+  'privacy/index.html has its canonical URL',
+  'missing',
+);
+check(
+  privacy.includes('Last updated: 2 October 2026'),
+  'privacy/index.html carries its "Last updated" date',
+  'adjust this check when the policy changes',
+);
+for (const anchor of ['/#features', '/#faq', '/#download']) {
+  check(privacy.includes(`href="${anchor}"`), `privacy/index.html navigation links to ${anchor}`, 'missing');
+}
+
+// Shared-quiz page: static tags for link previews, kept out of search engines, no navigation
+const share = html.get('s/index.html') ?? '';
+for (const [label, needle] of [
+  ['is noindex', '<meta name="robots" content="noindex"'],
+  ['has its og:title', '<meta property="og:title" content="A quiz on Inquizitive"'],
+  ['has its og:url', `<meta property="og:url" content="${site}/s/"`],
+  ['has the Smart App Banner tag', '<meta name="apple-itunes-app"'],
+  ['sets app-argument in its script', 'app-argument='],
+  ['has its German text', 'lang="de"'],
+]) {
+  check(share.includes(needle), `s/index.html ${label}`, 'missing');
+}
+check(!share.includes('nav-link'), 's/index.html has no navigation', 'found a nav-link');
 
 if (failures > 0) {
   console.log(`${failures} ${failures === 1 ? 'check' : 'checks'} failed.`);

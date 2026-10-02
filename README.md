@@ -28,6 +28,11 @@ or a published file is missing.
 |---|---|
 | Hero, features, Apple Intelligence band, Support, download text, navigation, footer | `src/data/site.ts` |
 | Screenshot list with alt texts and captions | `src/data/site.ts` (`screenshots`) |
+| Privacy policy | `src/pages/privacy.md` |
+| Landing page for shared quizzes | `src/pages/s.astro` |
+| Universal-link files, response headers | `public/.well-known/apple-app-site-association`, `public/apple-app-site-association`, `public/_headers` |
+| 404 page | `src/pages/404.astro` |
+| `robots.txt` | `public/robots.txt` |
 | Markup of a section | `src/components/` |
 | Page frame: `<head>`, header, footer | `src/layouts/Base.astro` |
 | Styles | `src/styles/site.css` |
@@ -46,6 +51,26 @@ A Support entry, a feature text or a footer link is one edit in `src/data/site.t
 
 The download text follows the same value; all three wordings are already in the file.
 `npm run check` verifies that the built homepage matches the status.
+
+## Editing the privacy policy
+
+The policy is `src/pages/privacy.md`, plain Markdown. When the wording changes, update the
+"Last updated" line at the top of the text and the date that `scripts/check-dist.mjs` expects.
+App Store Connect and the app link to `/privacy/`, so the path must stay.
+
+## Shared quizzes and universal links
+
+The app shares a quiz as `https://inquizitive.peterkurzok.de/s/#…`. On a device with the app
+installed the link opens the app; everywhere else it shows `src/pages/s.astro`.
+
+- The page has no navigation, is `noindex`, and carries an English and a German text. Its Open
+  Graph tags are static on purpose: messengers build their link preview from them without
+  running any script. The one inline script only hands the full address to the Smart App Banner.
+- `public/.well-known/apple-app-site-association` is what makes the links open the app. It is
+  load-bearing: a change to it changes which links the app receives, and Apple's CDN caches the
+  file for up to 24 hours, so a mistake stays live for a day. `public/apple-app-site-association`
+  is a second copy with identical content, and `public/_headers` serves both as
+  `application/json`. `npm run check` fails when the copies differ or a header rule is missing.
 
 ## Images
 
