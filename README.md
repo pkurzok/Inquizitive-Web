@@ -18,6 +18,7 @@ source of the site.
 | `npm run build` | Type-checks the project and builds the site into `dist/` |
 | `npm run check` | Builds, then verifies `dist/`: expected files, images, links, file sizes |
 | `npm run preview` | Serves the built `dist/` locally |
+| `npm run check:live -- <base-url>` | Verifies a deployed site against the URL contract below |
 
 Run `npm run check` before pushing. It prints one line per check and fails when a link dangles
 or a published file is missing.
@@ -109,3 +110,47 @@ When the number of images or a size changes, update the card texts in `press.dow
 
 No file above 25 MiB may enter the build: Cloudflare Pages rejects it and the whole deployment
 fails. `npm run check` fails for such a file and for any ZIP in `dist/`.
+
+## Deployment
+
+The Cloudflare Pages project `inquizitive-web` builds the site itself; there is nothing to upload.
+
+- A push to `main` deploys to <https://inquizitive.peterkurzok.de>.
+- Any other branch gets a preview at `https://<branch>.inquizitive-web.pages.dev`.
+- Build settings in the Cloudflare dashboard (Settings, Builds & deployments): build command
+  `npm run build`, build output directory `dist`, environment variable `NODE_VERSION` = `22`
+  for production and preview.
+- A failed build shows up as the "Cloudflare Pages" check on the commit in GitHub; the log is in
+  the Cloudflare dashboard. The live site keeps its last successful deployment.
+
+Check a preview before merging, and production after:
+
+```sh
+npm run check:live -- https://<branch>.inquizitive-web.pages.dev
+npm run check:live -- https://inquizitive.peterkurzok.de
+```
+
+Cloudflare's edge may keep answering for a deleted file from its cache for up to a week.
+`check:live` therefore asks for its 404 paths with a query string, which bypasses that cache.
+
+### Rollback
+
+In the Cloudflare dashboard open the Pages project, go to Deployments and choose "Rollback" on
+an earlier deployment. That takes effect at once and needs no commit. Follow up by reverting
+the offending commit on `main`, so that the next push does not bring the problem back.
+
+## URL contract
+
+These addresses are linked from the app, from App Store Connect or from press mails and must
+keep working. `npm run check:live` tests every line.
+
+| Address | Answer |
+|---|---|
+| `/`, `/privacy/`, `/press/`, `/s/` | 200 |
+| `/privacy`, `/press`, `/s`, `/index.html`, `/privacy/index.html`, `/press/index.html`, `/s/index.html` | 308 to the form with a trailing slash |
+| `/.well-known/apple-app-site-association`, `/apple-app-site-association` | 200 as `application/json`, identical to `public/` |
+| `/press/Inquizitive-Framed-Screenshots-en-US.zip`, `/press/Inquizitive-Raw-Screenshots-en-US.zip` | 302 to the GitHub release |
+| `/privacy.html`, `/press.html` | 301 to `/privacy/`, `/press/` |
+| `/feed.rss`, `/sitemap.xml`, `/robots.txt` | 200 |
+| every file in `src/assets/images/`, under `/images/…`, and `/images/press/app-icon.png` | 200, identical bytes |
+| anything else | 404 with the 404 page |
