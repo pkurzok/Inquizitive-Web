@@ -1,0 +1,1 @@
+Peter Kurzok is an independent developer from Germany building native apps for Apple platforms. His apps include PlayTales, a companion for audiobook fans, Photo Memo+ and TV Graphs, episode rating charts for every TV series. More at https://apps.peterkurzok.de, on GitHub (https://github.com/pkurzok) and on Mastodon (https://kind.social/@filmaniac).
