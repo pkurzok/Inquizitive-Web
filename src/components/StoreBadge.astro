@@ -1,0 +1,20 @@
+---
+import { app } from '../data/site';
+
+interface Props {
+  // Defaults to the badge of app.status; the shared-quiz page always shows the download badge.
+  kind?: 'preorder' | 'released';
+  alt?: string;
+}
+
+const kind = Astro.props.kind ?? (app.status === 'announced' ? undefined : app.status);
+if (!kind) throw new Error("StoreBadge needs a kind while app.status is 'announced': there is no badge for it.");
+
+const badge = app.badge[kind];
+const alt = Astro.props.alt ?? badge.alt;
+---
+
+<a href={app.appStoreUrl} class="store-badge-link">
+  <img src={`/images/${badge.file}-black.svg`} alt={alt} class="store-badge store-badge-light-mode" />
+  <img src={`/images/${badge.file}-white.svg`} alt={alt} class="store-badge store-badge-dark-mode" />
+</a>

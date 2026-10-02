@@ -1,0 +1,45 @@
+---
+import { app, copyright, footerLinks, legalLinks, social } from '../data/site';
+import Icon from './Icon.astro';
+
+interface Props {
+  // false leaves only the legal links: the shared-quiz page has no navigation.
+  nav?: boolean;
+}
+
+const { nav = true } = Astro.props;
+const links = nav ? footerLinks : legalLinks;
+---
+
+<footer class="site-footer">
+  <div class="container">
+    {
+      nav && (
+        <div class="footer-content">
+          <div class="footer-brand">
+            <p class="footer-tagline">{app.tagline}</p>
+          </div>
+          <div class="footer-social">
+            {social.map((entry) => (
+              <a href={entry.href} class="social-link" aria-label={entry.label}>
+                <Icon name={entry.icon} />
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+    <div class="footer-copyright">
+      <div class="footer-links">
+        {
+          links.map((entry) => (
+            <a href={entry.href} class="footer-link">
+              {entry.label}
+            </a>
+          ))
+        }
+      </div>
+      <p>{copyright}</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,124 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import { Content as About } from '../data/press/about.md';
+import { Content as Attribution } from '../data/press/attribution.md';
+import { Content as Developer } from '../data/press/developer.md';
+import { Content as ImageUsage } from '../data/press/image-usage.md';
+import { Content as Pricing } from '../data/press/pricing.md';
+import { app, press, screenshots } from '../data/site';
+import Base from '../layouts/Base.astro';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/screenshots/*.jpg', {
+  eager: true,
+});
+
+const shots = screenshots.map((shot) => {
+  const image = images[`../assets/images/screenshots/${shot.file}`];
+  if (!image) throw new Error(`Screenshot ${shot.file} is missing in src/assets/images/screenshots/`);
+  return { ...shot, image: image.default };
+});
+
+const contactNote = press.contact.note[app.status];
+---
+
+<Base
+  title="Press Kit - Inquizitive"
+  description="Press kit for Inquizitive: facts, contact, app icon, and downloadable framed and raw screenshots for iPhone, iPad, Mac and Apple Vision Pro."
+  path="/press/"
+>
+  <div class="press-main">
+    <div class="container">
+      <h1>{press.title}</h1>
+      <p class="press-lead"><strong>{press.lead} {press.leadLaunch[app.status]}</strong></p>
+
+      <section class="press-section" id="downloads">
+        <h2>Downloads</h2>
+        <div class="press-downloads">
+          {
+            press.downloads.map((item) => (
+              <div class="press-download-card">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <a href={item.href} class="button" download={item.download}>
+                  {item.label}
+                </a>
+              </div>
+            ))
+          }
+        </div>
+        <p class="press-note">{press.downloadsNote}</p>
+      </section>
+
+      <section class="press-section press-prose" id="about">
+        <h2>About Inquizitive</h2>
+        <About />
+      </section>
+
+      <section class="press-section press-prose" id="pricing">
+        <h2>Pricing</h2>
+        <Pricing />
+      </section>
+
+      <section class="press-section" id="screenshots">
+        <h2>Screenshots</h2>
+        <div class="press-gallery">
+          {
+            shots.map((shot) => (
+              <figure>
+                <Image src={shot.image} width={640} alt={shot.alt} loading="lazy" />
+                <figcaption>{shot.caption}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="press-section" id="facts">
+        <h2>Facts</h2>
+        <table class="press-facts">
+          <tbody>
+            {
+              press.facts.map((fact) => (
+                <tr>
+                  <th scope="row">{fact.label}</th>
+                  <td>{fact.href ? <a href={fact.href}>{fact.value}</a> : fact.value}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </section>
+
+      <section class="press-section press-prose" id="attribution">
+        <h2>Content attribution</h2>
+        <Attribution />
+      </section>
+
+      <section class="press-section press-prose" id="usage">
+        <h2>Image usage</h2>
+        <ImageUsage />
+      </section>
+
+      <section class="press-section press-prose" id="developer">
+        <h2>About the developer</h2>
+        <Developer />
+      </section>
+
+      <section class="press-section" id="contact">
+        <h2>Contact</h2>
+        <p>
+          {press.contact.name} · <a href={`mailto:${press.contact.email}`}>{press.contact.email}</a>
+          {
+            contactNote && (
+              <>
+                <br />
+                {contactNote}
+              </>
+            )
+          }
+        </p>
+      </section>
+    </div>
+  </div>
+</Base>

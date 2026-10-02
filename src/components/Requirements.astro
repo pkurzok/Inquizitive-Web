@@ -1,0 +1,26 @@
+---
+import { requirements, sections } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<section id="requirements" class="requirements-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>{sections.requirements.title}</h2>
+      <p class="section-description">{sections.requirements.description}</p>
+    </div>
+    <div class="requirements-grid">
+      {
+        requirements.map((requirement) => (
+          <div class="requirement">
+            <Icon name="check-circle-fill" class="requirement-icon" />
+            <div>
+              <h4 class="requirement-title">{requirement.title}</h4>
+              <p class="requirement-description">{requirement.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

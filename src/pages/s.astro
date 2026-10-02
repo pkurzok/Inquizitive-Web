@@ -1,0 +1,68 @@
+---
+// The page a shared-quiz link shows in a browser. The app opens such links itself (universal
+// links, public/.well-known/apple-app-site-association); this page is what everyone else sees.
+import { Image } from 'astro:assets';
+import appIcon from '../assets/images/app-icon.png';
+import StoreBadge from '../components/StoreBadge.astro';
+import Base from '../layouts/Base.astro';
+---
+
+{/*
+  The Open Graph tags that Base renders must stay static: a crawler doesn't run JavaScript, and
+  Messages, WhatsApp and Mastodon build their link preview from them, so nothing in them may be
+  injected at runtime.
+  noindex: the page says nothing without the fragment, and a crawler never receives the fragment.
+  The badges are the download badge whatever app.status says: whoever holds a link was sent it
+  from an installed app.
+*/}
+<Base
+  title="A quiz on Inquizitive"
+  description="Someone shared a quiz with you. Open the link on a device with Inquizitive installed."
+  path="/s/"
+  noindex
+  nav={false}
+  image="/images/app-icon.png"
+  card="summary"
+>
+  <section id="hero" class="hero share-hero">
+    <div class="container">
+      <Image src={appIcon} width={240} height={240} alt="Inquizitive app icon" class="share-app-icon" loading="eager" />
+
+      <div class="share-lede" lang="en">
+        <h1 class="hero-title">Someone shared a quiz with you</h1>
+        <p class="hero-subtitle">
+          Open this link on an iPhone, iPad, Mac or Apple Vision Pro with Inquizitive installed, and the quiz is added
+          to your library. The quiz was encrypted on the sender's device, and the key is part of the link.
+        </p>
+        <div class="hero-cta">
+          <StoreBadge kind="released" alt="Download on the App Store" />
+        </div>
+      </div>
+
+      <div class="share-lede" lang="de">
+        <h2 class="hero-title">Jemand hat ein Quiz mit dir geteilt</h2>
+        <p class="hero-subtitle">
+          Öffne diesen Link auf einem iPhone, iPad, Mac oder einer Apple Vision Pro, auf der Inquizitive installiert
+          ist, und das Quiz landet in deiner Bibliothek. Das Quiz wurde auf dem Gerät des Absenders verschlüsselt, und
+          der Schlüssel ist Teil des Links.
+        </p>
+        <div class="hero-cta">
+          <StoreBadge kind="released" alt="Laden im App Store" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/*
+    Base renders the Smart App Banner tag (apple-itunes-app). This script adds `app-argument`
+    with the whole URL, fragment included, so the banner's Open button hands the quiz to the
+    installed app.
+  */}
+  <script is:inline>
+    // The quiz is never shown here and can't be: its record id and key are in the URL fragment,
+    // which stays in the browser (RFC 3986 §3.5). The server sees a plain GET for /s/.
+    // The fragment is only needed for the Smart App Banner's Open button, set here in the browser.
+    document.querySelector('meta[name="apple-itunes-app"]')
+      .setAttribute('content', 'app-id=6817424653, app-argument=' + window.location.href);
+  </script>
+</Base>
