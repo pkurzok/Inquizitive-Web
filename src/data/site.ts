@@ -12,7 +12,7 @@ export const app = {
   appStoreUrl: 'https://apps.apple.com/app/id6817424653',
   launchDate: '22 October 2026',
   // The one value to change: 'preorder' after App Review, 'released' on launch day.
-  status: 'announced' as LaunchStatus,
+  status: 'preorder' as LaunchStatus,
   badge: {
     preorder: { file: 'app-store-preorder', alt: 'Pre-order on the App Store' },
     released: { file: 'app-store-download', alt: 'Download on the App Store' },
