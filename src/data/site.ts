@@ -10,7 +10,7 @@ export const app = {
   email: 'inquizitive@peterkurzok.de',
   appStoreId: '6817424653',
   appStoreUrl: 'https://apps.apple.com/app/id6817424653',
-  launchDate: '18 October 2026',
+  launchDate: '22 October 2026',
   // The one value to change: 'preorder' after App Review, 'released' on launch day.
   status: 'announced' as LaunchStatus,
   badge: {
@@ -19,13 +19,13 @@ export const app = {
   },
   // While the status is 'announced' the two calls to action are buttons; afterwards they are
   // the App Store badge of the status.
-  heroCta: { label: 'Coming 18 October: see it in action', href: '#screenshots' },
+  heroCta: { label: 'Coming 22 October: see it in action', href: '#screenshots' },
   downloadCta: { label: 'Write to me', href: 'mailto:inquizitive@peterkurzok.de' },
   downloadText: {
     announced:
-      'Coming to the App Store on 18 October 2026 for iPhone, iPad, Mac and Apple Vision Pro. Free to try with three quizzes; Pro, a one-time purchase, unlocks unlimited quizzes and removes the ads.',
+      'Coming to the App Store on 22 October 2026 for iPhone, iPad, Mac and Apple Vision Pro. Free to try with three quizzes; Pro, a one-time purchase, unlocks unlimited quizzes and removes the ads.',
     preorder:
-      'Available for pre-order now. It arrives automatically on 18 October 2026 for iPhone, iPad, Mac and Apple Vision Pro. Free to try with three quizzes; Pro, a one-time purchase, unlocks unlimited quizzes and removes the ads.',
+      'Available for pre-order now. It arrives automatically on 22 October 2026 for iPhone, iPad, Mac and Apple Vision Pro. Free to try with three quizzes; Pro, a one-time purchase, unlocks unlimited quizzes and removes the ads.',
     released:
       'Available now on the App Store for iPhone, iPad, Mac and Apple Vision Pro. Free to try with three quizzes; Pro, a one-time purchase, unlocks unlimited quizzes and removes the ads.',
   } as Record<LaunchStatus, string>,
@@ -218,9 +218,9 @@ export const press = {
   title: 'Press Kit',
   lead: "Ten fact-checked questions on anything you're curious about, in about a minute, on iPhone, iPad, Mac and Apple Vision Pro. Free to try, with no account; Pro, a one-time purchase, unlocks unlimited quizzes.",
   leadLaunch: {
-    announced: 'Launching on the App Store on 18 October 2026.',
-    preorder: 'Launching on the App Store on 18 October 2026, available for pre-order now.',
-    released: 'Available on the App Store since 18 October 2026.',
+    announced: 'Launching on the App Store on 22 October 2026.',
+    preorder: 'Launching on the App Store on 22 October 2026, available for pre-order now.',
+    released: 'Available on the App Store since 22 October 2026.',
   } as Record<LaunchStatus, string>,
   // The ZIP archives are assets of the GitHub release press-kit-en-US; public/_redirects
   // sends the /press/ URLs there. The counts and sizes name what the release holds: update
@@ -251,9 +251,9 @@ export const press = {
     {
       label: 'Launch',
       value: {
-        announced: '18 October 2026 on the App Store',
-        preorder: '18 October 2026 on the App Store (available for pre-order now)',
-        released: '18 October 2026 on the App Store',
+        announced: '22 October 2026 on the App Store',
+        preorder: '22 October 2026 on the App Store (available for pre-order now)',
+        released: '22 October 2026 on the App Store',
       }[app.status],
     },
     {
