@@ -249,7 +249,7 @@ check(
   'missing',
 );
 check(
-  privacy.includes('Last updated: 2 October 2026'),
+  privacy.includes('Last updated: 12 October 2026'),
   'privacy/index.html carries its "Last updated" date',
   'adjust this check when the policy changes',
 );

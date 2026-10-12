@@ -7,7 +7,7 @@ path: /privacy/
 
 # Privacy Policy
 
-Last updated: 2 October 2026
+Last updated: 12 October 2026
 
 Inquizitive turns any topic into a quiz. It has no accounts, no login and no server of my own. It contains no analytics, no crash reporting and no tracking. The free version shows ads from Kickstart Exchange, described below; it is the only third-party service the app sends data to on its own.
 
@@ -58,6 +58,8 @@ Legal basis: Art. 6(1)(b) GDPR.
 ## Pro, tips and in-app purchases
 
 Pro and the optional tips in Settings are processed entirely by Apple through the App Store. I receive no payment details and no personal information about you, only anonymous sales totals from Apple.
+
+The free version includes three quizzes. To keep track of them, the app stores how many quizzes you have created: a single number, kept on your device and, if you are signed in to iCloud, in the app’s **iCloud key-value storage**. That storage belongs to your Apple Account, like your quizzes: I have no access to it and receive no copy. Quizzes you add from a shared link don’t count.
 
 ## No tracking
 
