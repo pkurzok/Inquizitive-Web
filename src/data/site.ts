@@ -233,13 +233,13 @@ export const press = {
   downloads: [
     {
       title: 'Framed screenshots',
-      text: '20 captioned images (iPhone, iPad and Mac in Apple device bezels, Vision Pro unframed). ZIP, 7.8\u00a0MB.',
+      text: '29 captioned images (iPhone, iPhone Duo, iPad and Mac in Apple device bezels, Vision Pro unframed). ZIP, 10.6\u00a0MB.',
       href: '/press/Inquizitive-Framed-Screenshots-en-US.zip',
       label: 'Download ZIP',
     },
     {
       title: 'Raw screenshots',
-      text: '20 unframed full-resolution captures. ZIP, 42\u00a0MB.',
+      text: '29 unframed full-resolution captures. ZIP, 46\u00a0MB.',
       href: '/press/Inquizitive-Raw-Screenshots-en-US.zip',
       label: 'Download ZIP',
     },
