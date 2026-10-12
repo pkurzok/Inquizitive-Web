@@ -207,7 +207,12 @@ export const screenshots = [
     caption: 'Memorize what you missed',
   },
   {
-    file: 'iphone-06-library.jpg',
+    file: 'iphone-06-share.jpg',
+    alt: 'Challenge your friends',
+    caption: 'Challenge your friends: share a quiz with a link and your score to beat',
+  },
+  {
+    file: 'iphone-07-library.jpg',
     alt: 'All your quizzes, synced',
     caption: 'All your quizzes, synced through iCloud',
   },
