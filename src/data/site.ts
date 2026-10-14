@@ -164,7 +164,7 @@ export const faq = [
   {
     question: 'Do you collect any data about me?',
     answer:
-      "No. There's no account, no analytics and no crash reporting, and the app never asks to track you. The free version shows banners for other indie apps from Kickstart Exchange, which counts views and taps per app, never per person or device. The privacy policy sets out exactly what leaves your device and to whom.",
+      "No. There's no account, no analytics and no crash reporting, and the app never asks to track you. The free version shows banners for other indie apps from Kickstart Exchange, which counts views and taps per app, never per person or device. If you open the feature-request board in Settings, your suggestions and votes go to Kickstart Signal under a random installation identifier, without a name or account. The privacy policy sets out exactly what leaves your device and to whom.",
   },
   {
     question: 'What do the tips unlock?',
