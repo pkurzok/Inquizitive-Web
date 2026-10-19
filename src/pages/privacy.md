@@ -7,9 +7,9 @@ path: /privacy/
 
 # Privacy Policy
 
-Last updated: 12 October 2026
+Last updated: 14 October 2026
 
-Inquizitive turns any topic into a quiz. It has no accounts, no login and no server of my own. It contains no analytics, no crash reporting and no tracking. The free version shows ads from Kickstart Exchange, described below; it is the only third-party service the app sends data to on its own.
+Inquizitive turns any topic into a quiz. It has no accounts, no login and no server of my own. It contains no analytics, no crash reporting and no tracking. The free version shows ads from Kickstart Exchange, and Settings has an optional feature-request board from Kickstart Signal; both are described below, and the app sends data to no other third party on its own.
 
 This policy explains exactly what leaves your device, where it goes, and why.
 
@@ -34,6 +34,14 @@ The free version shows banners for other indie apps from **Kickstart Exchange**,
 To load and count banners, the app sends Kickstart Exchange app-level information only: the app’s identifier, platform, app and SDK version, the App Store storefront country, a signed App Store transaction record that Kickstart Exchange verifies and then discards, and whether a banner was shown or tapped. It sends no account, no device or advertising identifier, and the app never asks for permission to track you. Kickstart Exchange counts views and taps per app, not per person or device. Its network provider Cloudflare sees your IP address, as with any web request; Kickstart Exchange states that it doesn’t store it. Legal basis: Art. 6(1)(f) GDPR (financing the free version). See the [Kickstart Exchange privacy policy](https://exchange.kickstart.tools/privacy).
 
 With Pro, no banners are loaded and nothing is sent to Kickstart Exchange.
+
+## Feature requests: Kickstart Signal
+
+Settings ▸ Feature Requests opens a board where you can suggest features, vote and comment. It is run by **Kickstart Signal**, operated by Hudson Heavy Industries Ltd., 37 Great Pulteney Street, Bath, BA2 4DA, United Kingdom. Nothing is sent unless you open it.
+
+When you open the board, the app sends the app’s identifier, platform and SDK version and, if the service asks for it, a signed App Store transaction record that Kickstart Signal verifies and then discards. When you first vote or submit something, the app creates a **random installation identifier** and stores it on your device. It is sent with your votes, suggestions and comments so that you can undo your own vote, and it is not derived from you or your device. The text you type (title, description, comments), your votes and whether you own Pro are sent too. The app sends no name, no email address, no account, no quiz content and no advertising identifier.
+
+Everything you submit stays private until I review and publish it, and it is never shown with a name. Cloudflare sees your IP address, as with any web request; Kickstart Signal states that it uses it only to prevent abuse and doesn’t store it. Suggestions, votes and comments are kept as long as the board exists. The service cannot tell who wrote what, so to have something deleted, write to me (see “Contacting me”) and name the suggestion. Legal basis: Art. 6(1)(f) GDPR for showing the board; what you submit, you submit voluntarily. See the [Kickstart Signal privacy policy](https://signal.kickstart.tools/privacy).
 
 ## Your quizzes and iCloud
 
@@ -67,7 +75,7 @@ The free version includes three quizzes. To keep track of them, the app stores h
 - no crash reporting
 - no advertising identifier and no request for permission to track
 - no accounts, no email sign-up
-- no third-party SDK that sends data anywhere, apart from Kickstart Exchange in the free version
+- no third-party SDK that sends data anywhere, apart from Kickstart Exchange in the free version and Kickstart Signal when you open the feature-request board
 
 ## This website
 
