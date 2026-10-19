@@ -19,11 +19,13 @@ Quizzes are written by Apple Intelligence. The topic you type, your answers to t
 
 Private Cloud Compute is operated by Apple. Apple states that data sent to it is used only to fulfil your request, is not retained, and is not accessible to Apple or to me. See [Apple’s Private Cloud Compute overview](https://security.apple.com/blog/private-cloud-compute/) and [Apple’s privacy policy](https://www.apple.com/legal/privacy/). The on-device model sends nothing anywhere.
 
-## Research with Wikipedia, Wiktionary, Wikidata and Fandom
+## Research with Wikipedia, Wiktionary, Wikidata, fan wikis and MusicBrainz
 
-When Private Cloud Compute writes a quiz, it can look facts up so that the questions are correct and can show their sources. Your device then sends search requests, and requests to read the pages it found, to **Wikipedia, Wiktionary and Wikidata**, operated by the Wikimedia Foundation, Inc., 1 Montgomery Street, Suite 1600, San Francisco, CA 94104, USA, and, for games, films, series and books, to the fan wikis on **Fandom**, operated by Fandom, Inc., 130 Battery Street, San Francisco, CA 94111, USA.
+When Private Cloud Compute writes a quiz, it can look facts up so that the questions are correct and can show their sources. Your device then sends search requests, and requests to read the pages it found, to **Wikipedia, Wiktionary and Wikidata**, operated by the Wikimedia Foundation, Inc., 1 Montgomery Street, Suite 1600, San Francisco, CA 94104, USA, and, for games, films, series and books, to the fan wikis on **Fandom**, operated by Fandom, Inc., 130 Battery Street, San Francisco, CA 94111, USA. For some games the app uses the community’s own wiki instead: minecraft.wiki, terraria.wiki.gg, warcraft.wiki.gg, zeldawiki.wiki, runescape.wiki, oldschool.runescape.wiki, yugipedia.com, poewiki.net, doomwiki.org, ark.wiki.gg, cuphead.wiki.gg, stardewvalleywiki.com, wiki.factorio.com, uesp.net and wiki.teamfortress.com. Each operator’s own privacy policy applies to requests to its wiki.
 
 Each request contains only the search term or page title the model chose (for example “Punic Wars”), the language, and an app identifier (`Inquizitive/` followed by the app version). It contains no account, no device identifier and nothing else about you. As with any web request, the servers see your device’s IP address. The Wikimedia Foundation’s [privacy policy](https://foundation.wikimedia.org/wiki/Policy:Privacy_policy) and Fandom’s [privacy policy](https://www.fandom.com/privacy-policy) apply to these requests.
+
+For music, the app looks artists, albums and songs up on **MusicBrainz**, operated by the MetaBrainz Foundation, 440 N Barranca Ave #6432, Covina, CA 91723, USA. These requests, too, contain only the name the model chose (for example “Rammstein”) and the app identifier, and the servers see your device’s IP address. The MetaBrainz Foundation’s [privacy policy](https://metabrainz.org/privacy) applies to them.
 
 When you tap a source link in a quiz, the article opens in your browser, and the privacy policy of that website applies.
 
