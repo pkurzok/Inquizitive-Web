@@ -101,7 +101,7 @@ export const features = [
   {
     icon: 'patch-check',
     title: 'Fact-checked, with sources',
-    text: "Questions are researched on Wikipedia, Wiktionary and Wikidata while they're written. Every answer comes with a short explanation and a source you can tap to read more.",
+    text: "Questions are researched on Wikipedia, Wiktionary, Wikidata and Fandom while they're written. Every answer comes with a short explanation and a source you can tap to read more.",
   },
   {
     icon: 'arrow-repeat',
@@ -149,7 +149,7 @@ export const faq = [
   {
     question: 'Where do the facts come from?',
     answer:
-      "When Apple's Private Cloud Compute is available, questions are researched on Wikipedia, Wiktionary and Wikidata while they're written, and each answer shows its sources. On the on-device model, quizzes are written without live research.",
+      "When Apple's Private Cloud Compute is available, questions are researched on Wikipedia, Wiktionary and Wikidata, and for games, films and series on Fandom's fan wikis, while they're written, and each answer shows its sources. On the on-device model, quizzes are written without live research.",
   },
   {
     question: 'How do my quizzes get to my other devices?',

@@ -7,7 +7,7 @@ path: /privacy/
 
 # Privacy Policy
 
-Last updated: 14 October 2026
+Last updated: 19 October 2026
 
 Inquizitive turns any topic into a quiz. It has no accounts, no login and no server of my own. It contains no analytics, no crash reporting and no tracking. The free version shows ads from Kickstart Exchange, and Settings has an optional feature-request board from Kickstart Signal; both are described below, and the app sends data to no other third party on its own.
 
@@ -19,11 +19,11 @@ Quizzes are written by Apple Intelligence. The topic you type, your answers to t
 
 Private Cloud Compute is operated by Apple. Apple states that data sent to it is used only to fulfil your request, is not retained, and is not accessible to Apple or to me. See [Apple’s Private Cloud Compute overview](https://security.apple.com/blog/private-cloud-compute/) and [Apple’s privacy policy](https://www.apple.com/legal/privacy/). The on-device model sends nothing anywhere.
 
-## Research with Wikipedia, Wiktionary and Wikidata
+## Research with Wikipedia, Wiktionary, Wikidata and Fandom
 
-When Private Cloud Compute writes a quiz, it can look facts up so that the questions are correct and can show their sources. Your device then sends search requests to **Wikipedia, Wiktionary and Wikidata**, operated by the Wikimedia Foundation, Inc., 1 Montgomery Street, Suite 1600, San Francisco, CA 94104, USA.
+When Private Cloud Compute writes a quiz, it can look facts up so that the questions are correct and can show their sources. Your device then sends search requests, and requests to read the pages it found, to **Wikipedia, Wiktionary and Wikidata**, operated by the Wikimedia Foundation, Inc., 1 Montgomery Street, Suite 1600, San Francisco, CA 94104, USA, and, for games, films, series and books, to the fan wikis on **Fandom**, operated by Fandom, Inc., 130 Battery Street, San Francisco, CA 94111, USA.
 
-Each request contains only the search term the model chose (for example “Punic Wars”), the language, and an app identifier (`Inquizitive/` followed by the app version). It contains no account, no device identifier and nothing else about you. As with any web request, the Wikimedia servers see your device’s IP address. The Wikimedia Foundation’s [privacy policy](https://foundation.wikimedia.org/wiki/Policy:Privacy_policy) applies to these requests.
+Each request contains only the search term or page title the model chose (for example “Punic Wars”), the language, and an app identifier (`Inquizitive/` followed by the app version). It contains no account, no device identifier and nothing else about you. As with any web request, the servers see your device’s IP address. The Wikimedia Foundation’s [privacy policy](https://foundation.wikimedia.org/wiki/Policy:Privacy_policy) and Fandom’s [privacy policy](https://www.fandom.com/privacy-policy) apply to these requests.
 
 When you tap a source link in a quiz, the article opens in your browser, and the privacy policy of that website applies.
 
