@@ -249,9 +249,14 @@ check(
   'missing',
 );
 check(
-  privacy.includes('Last updated: 19 October 2026'),
+  privacy.includes('Last updated: 5 November 2026'),
   'privacy/index.html carries its "Last updated" date',
   'adjust this check when the policy changes',
+);
+check(
+  privacy.includes('Quizzes from your own material'),
+  'privacy/index.html describes quizzes from your own material',
+  'missing',
 );
 for (const anchor of ['/#features', '/#faq', '/#download']) {
   check(privacy.includes(`href="${anchor}"`), `privacy/index.html navigation links to ${anchor}`, 'missing');

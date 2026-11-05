@@ -7,7 +7,7 @@ path: /privacy/
 
 # Privacy Policy
 
-Last updated: 19 October 2026
+Last updated: 5 November 2026
 
 Inquizitive turns any topic into a quiz. It has no accounts, no login and no server of my own. It contains no analytics, no crash reporting and no tracking. The free version shows ads from Kickstart Exchange, and Settings has an optional feature-request board from Kickstart Signal; both are described below, and the app sends data to no other third party on its own.
 
@@ -28,6 +28,16 @@ Each request contains only the search term or page title the model chose (for ex
 For music, the app looks artists, albums and songs up on **MusicBrainz**, operated by the MetaBrainz Foundation, 440 N Barranca Ave #6432, Covina, CA 91723, USA. These requests, too, contain only the name the model chose (for example “Rammstein”) and the app identifier, and the servers see your device’s IP address. The MetaBrainz Foundation’s [privacy policy](https://metabrainz.org/privacy) applies to them.
 
 When you tap a source link in a quiz, the article opens in your browser, and the privacy policy of that website applies.
+
+## Quizzes from your own material
+
+You can also have a quiz written from your own material: pages you scan with the camera, photos you pick, PDF and text files, and web links. Nothing is read unless you add it. The camera is used only while you scan, and only after you allow it; the photo picker hands the app only the photos you choose.
+
+- **Private Cloud Compute only.** The photos, scans, document text and page text go to Apple’s Private Cloud Compute with the request that writes the quiz, under the same terms as above. A quiz from your material is never written by another service, and, unlike other quizzes, not by the on-device model either.
+- **Links are loaded by the app.** For a web link, your device loads the page itself, like a browser without scripts, sending the app identifier (`Inquizitive/` followed by the app version). The website sees your device’s IP address, and its own privacy policy applies.
+- **Stored with the quiz.** Reduced copies of your photos and pages and the text of your documents and links are stored with the quiz, on your device and, if you use iCloud, in your private iCloud database, as described under “Your quizzes and iCloud”. Deleting the quiz deletes them.
+- **Never shared or reported.** When you share such a quiz, the material stays on your device: the shared quiz contains the questions only. These quizzes can’t be reported, so your material never ends up in a report.
+- **Wikipedia as an extra.** After an answer, the app may search Wikipedia for the correct answer to suggest a page to read on; that request contains the answer only, as described under “Research”.
 
 ## Ads in the free version: Kickstart Exchange
 
