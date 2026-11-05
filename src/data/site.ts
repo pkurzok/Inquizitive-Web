@@ -101,12 +101,12 @@ export const features = [
   {
     icon: 'patch-check',
     title: 'Fact-checked, with sources',
-    text: "Questions are researched on Wikipedia, Wiktionary, Wikidata, fan wikis and MusicBrainz while they're written. Every answer comes with a short explanation and a source you can tap to read more.",
+    text: "Questions are researched on Wikipedia, Wiktionary, Wikidata, fan wikis and MusicBrainz while they're written. Every answer comes with a short explanation, the picture from its Wikipedia page, a source you can tap, and a Background button that writes a short paragraph on the fact and reads it to you.",
   },
   {
     icon: 'arrow-repeat',
     title: 'Practice what you missed',
-    text: 'Retry only the questions you got wrong until they stick. Your best score is kept for every quiz, and your quizzes sync through iCloud.',
+    text: "Retry only the questions you got wrong until they stick. Your best score is kept for every quiz. Remove questions you're done with and add new ones in the same style. Your quizzes sync through iCloud.",
   },
   {
     icon: 'laptop',
@@ -233,13 +233,13 @@ export const press = {
   downloads: [
     {
       title: 'Framed screenshots',
-      text: '29 captioned images (iPhone, iPhone Duo, iPad and Mac in Apple device bezels, Vision Pro unframed). ZIP, 10.6\u00a0MB.',
+      text: '29 captioned images (iPhone, iPhone Duo, iPad and Mac in Apple device bezels, Vision Pro unframed). ZIP, 10.9\u00a0MB.',
       href: '/press/Inquizitive-Framed-Screenshots-en-US.zip',
       label: 'Download ZIP',
     },
     {
       title: 'Raw screenshots',
-      text: '29 unframed full-resolution captures. ZIP, 46\u00a0MB.',
+      text: '29 unframed full-resolution captures. ZIP, 48\u00a0MB.',
       href: '/press/Inquizitive-Raw-Screenshots-en-US.zip',
       label: 'Download ZIP',
     },
