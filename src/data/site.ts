@@ -233,7 +233,7 @@ export const press = {
   downloads: [
     {
       title: 'Framed screenshots',
-      text: '29 captioned images (iPhone, iPhone Duo, iPad and Mac in Apple device bezels, Vision Pro unframed). ZIP, 10.9\u00a0MB.',
+      text: '29 captioned images (iPhone, iPhone Duo, iPad and Mac in Apple device bezels, Vision Pro unframed). ZIP, 9.3\u00a0MB.',
       href: '/press/Inquizitive-Framed-Screenshots-en-US.zip',
       label: 'Download ZIP',
     },
