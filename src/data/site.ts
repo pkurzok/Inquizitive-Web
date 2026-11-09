@@ -64,7 +64,7 @@ export const copyright = '© 2026 Peter Kurzok';
 export const hero = {
   title: "Ten fact-checked questions on anything you're curious about.",
   subtitle:
-    'Type a topic, answer three quick questions, and learn from sources you can check. Native on iPhone, iPad, Mac and Apple Vision Pro.',
+    'Type a topic, or hand it your own notes, PDFs and web pages. Answer three quick questions, and learn from sources you can check. Native on iPhone, iPad, Mac and Apple Vision Pro.',
   trust: ['No account', 'No tracking', 'Free to try'],
   // A file in src/assets/images/screenshots/.
   image: 'iphone-01-question.jpg',
@@ -74,7 +74,7 @@ export const hero = {
 export const sections = {
   screenshots: {
     title: 'A look inside',
-    description: 'Pick a topic, tailor it, and learn from sources you can check.',
+    description: 'Pick a topic or your own notes, tailor it, and learn from sources you can check.',
   },
   features: {
     title: 'Built to help you remember',
@@ -99,6 +99,11 @@ export const features = [
     text: "The solar system, jazz history, Spanish verbs, the city you're visiting next. Answer three quick questions, beginner or expert, broad or deep, and the quiz fits you.",
   },
   {
+    icon: 'file-earmark-text',
+    title: 'Quiz your own material',
+    text: 'Scan pages, pick photos, add PDF or text files, or paste web links, and get a quiz from that material alone. An optional focus like "only chapter 3" narrows it, and every answer shows the page it came from.',
+  },
+  {
     icon: 'patch-check',
     title: 'Fact-checked, with sources',
     text: "Questions are researched on Wikipedia, Wiktionary, Wikidata, fan wikis and MusicBrainz while they're written. Every answer comes with a short explanation, the picture from its Wikipedia page, a source you can tap, and a Background button that writes a short paragraph on the fact and reads it to you.",
@@ -110,18 +115,13 @@ export const features = [
   },
   {
     icon: 'laptop',
-    title: 'Native on iPhone, iPad, Mac and Vision Pro',
-    text: 'One app, built for each device: a sidebar on iPad and Mac, a window of its own on Apple Vision Pro. Quizzes sync between them through iCloud.',
-  },
-  {
-    icon: 'translate',
-    title: 'In 17 languages',
-    text: "Inquizitive speaks your language, and so do its sources: questions are researched in your language's Wikipedia.",
+    title: 'Native on iPhone, iPad, Mac and Vision Pro, in 17 languages',
+    text: "One app, built for each device: a sidebar on iPad and Mac, a window of its own on Apple Vision Pro, with quizzes synced between them through iCloud. It speaks your language, and so do its sources: questions are researched in your language's Wikipedia.",
   },
   {
     icon: 'shield-lock',
     title: 'Private by design',
-    text: "No account, no analytics, no tracking. Quizzes are written by Apple Intelligence, on your device or on Apple's Private Cloud Compute.",
+    text: "No account, no analytics, no tracking. Quizzes are written by Apple Intelligence, on your device or on Apple's Private Cloud Compute. Your own material is sent to Private Cloud Compute only and never shared.",
   },
 ] as const;
 
@@ -150,6 +150,12 @@ export const faq = [
     question: 'Where do the facts come from?',
     answer:
       "When Apple's Private Cloud Compute is available, questions are researched on Wikipedia, Wiktionary and Wikidata, for games, films and series on fan wikis, and for music on MusicBrainz, while they're written, and each answer shows its sources. On the on-device model, quizzes are written without live research.",
+  },
+  {
+    question: 'Can I make a quiz from my own notes or a PDF?',
+    answer:
+      'Yes. In the New Quiz sheet, scan pages with the camera, pick photos, add PDF or text files, or paste web links: up to 20 pages, 5 links and about 40 book pages of text per quiz. The questions come from that material alone. It is written on Apple\'s Private Cloud Compute only, so this needs Private Cloud Compute to be available. Your material is stored with the quiz in your iCloud and stays home when you share the quiz.',
+    link: { href: '/privacy/', label: 'What the privacy policy says about your material' },
   },
   {
     question: 'How do my quizzes get to my other devices?',
@@ -187,32 +193,37 @@ export const screenshots = [
     caption: 'A smart quiz on any topic',
   },
   {
-    file: 'iphone-02-tailor.jpg',
+    file: 'iphone-02-material.jpg',
+    alt: 'Quiz your own notes',
+    caption: 'Quiz your own notes: scan pages, pick photos, add files or links',
+  },
+  {
+    file: 'iphone-03-tailor.jpg',
     alt: 'Tailored to you',
     caption: 'Tailored to you: three quick questions set the level and focus',
   },
   {
-    file: 'iphone-03-research.jpg',
+    file: 'iphone-04-research.jpg',
     alt: 'Fact-checked with Wikipedia',
     caption: 'Fact-checked with Wikipedia while the quiz is written',
   },
   {
-    file: 'iphone-04-explanation.jpg',
+    file: 'iphone-05-explanation.jpg',
     alt: "Learn why it's right",
     caption: "Learn why it's right: an explanation and sources for every answer",
   },
   {
-    file: 'iphone-05-results.jpg',
+    file: 'iphone-06-results.jpg',
     alt: 'Memorize what you missed',
     caption: 'Memorize what you missed',
   },
   {
-    file: 'iphone-06-share.jpg',
+    file: 'iphone-07-share.jpg',
     alt: 'Challenge your friends',
     caption: 'Challenge your friends: share a quiz with a link and your score to beat',
   },
   {
-    file: 'iphone-07-library.jpg',
+    file: 'iphone-08-library.jpg',
     alt: 'All your quizzes, synced',
     caption: 'All your quizzes, synced through iCloud',
   },
@@ -233,13 +244,13 @@ export const press = {
   downloads: [
     {
       title: 'Framed screenshots',
-      text: '29 captioned images (iPhone, iPhone Duo, iPad and Mac in Apple device bezels, Vision Pro unframed). ZIP, 9.3\u00a0MB.',
+      text: '34 captioned images (iPhone, iPhone Duo, iPad and Mac in Apple device bezels, Vision Pro unframed). ZIP, 13.4\u00a0MB.',
       href: '/press/Inquizitive-Framed-Screenshots-en-US.zip',
       label: 'Download ZIP',
     },
     {
       title: 'Raw screenshots',
-      text: '29 unframed full-resolution captures. ZIP, 48\u00a0MB.',
+      text: '34 unframed full-resolution captures. ZIP, 60\u00a0MB.',
       href: '/press/Inquizitive-Raw-Screenshots-en-US.zip',
       label: 'Download ZIP',
     },

@@ -15,7 +15,15 @@ import { faq, sections } from '../data/site';
           <details name="faq" class="faq-item">
             <summary>{entry.question}</summary>
             <div class="faq-body">
-              <p class="faq-answer">{entry.answer}</p>
+              <p class="faq-answer">
+                {entry.answer}
+                {'link' in entry && entry.link && (
+                  <>
+                    {' '}
+                    <a href={entry.link.href}>{entry.link.label}</a>
+                  </>
+                )}
+              </p>
             </div>
           </details>
         ))
